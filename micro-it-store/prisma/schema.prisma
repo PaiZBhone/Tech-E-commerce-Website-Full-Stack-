@@ -1,0 +1,50 @@
+datasource db {
+  provider = "mysql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// 1. Core Top-Level Categories (Mobile Phone, Smart Watch, Notebook)
+model Category {
+  id        Int       @id @default(autoincrement())
+  name      String    @unique // e.g., "Mobile Phone"
+  slug      String    @unique // e.g., "mobile-phone"
+  products  Product[]
+}
+
+// 2. Hardware Brands (Apple, Samsung, Huawei, Asus, Lenovo, MSI Gaming)
+model Brand {
+  id        Int       @id @default(autoincrement())
+  name      String    @unique // e.g., "Apple"
+  products  Product[]
+}
+
+// 3. Dynamic Products Table
+model Product {
+  id          Int      @id @default(autoincrement())
+  name        String   // e.g., "iPhone 14 Plus" or "MSI Titan"
+  price       Float    // Price in MMK (e.g., 2640000)
+  imageUrl    String   // Managed via Cloudinary assets
+  colors      String   // Comma separated options: "Starlight,Midnight,Blue"
+  storage     String   // Comma separated options: "128 GB,256 GB,512 GB"
+  
+  // Relations
+  categoryId  Int
+  category    Category @relation(fields: [categoryId], references: [id])
+  brandId     Int
+  brand       Brand    @relation(fields: [brandId], references: [id])
+
+  createdAt   DateTime @default(now())
+}
+
+// 4. Contact Form Submissions
+model ContactMessage {
+  id        Int      @id @default(autoincrement())
+  firstName String
+  lastName  String
+  phone     String
+  message   String   @db.Text
+  createdAt DateTime @default(now())
+}
