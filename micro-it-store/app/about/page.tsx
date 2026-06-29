@@ -3,20 +3,15 @@ import React from "react";
 import { myFunction } from "../function";
 import "./about.css";
 import "../home.css";
+import SubscribeButton from "../components/SubscribeButtion";
 
-<button
-  className="button2"
-  onClick={(e) => myFunction(e.currentTarget, "green")}
->
-  subscribe now
-</button>;
 
 export default function about() {
   return (
     <div>
       <div className="head">
         <p>
-          <a href="Microit.html" className="title">
+          <a href="../../" className="title">
             <img src="photo/logo2.png" width="200px" height="150px"></img>
           </a>
           <a href="#">
@@ -198,16 +193,7 @@ export default function about() {
         {/* <button className="button2" onClick="myFunction(this, 'green')"> 
             subscribe now
           </button> */}
-        <button
-          className="button2"
-          onClick={() => {
-            alert(
-              "Thanks for following us and be the first one to get latest updates <3",
-            );
-          }}
-        >
-          subscribe now
-        </button>
+        <SubscribeButton></SubscribeButton>
 
         <a href="https://www.facebook.com/">
           <img src="photo/facebook.png" className="gmail"></img>

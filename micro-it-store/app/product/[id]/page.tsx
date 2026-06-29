@@ -1,13 +1,90 @@
-import Image from "next/image";
-import "./home.css";
-import { myFunction } from "./function";
-import SubscribeButton from "./components/SubscribeButtion";
+import prisma from "@/lib/prisma";
+import Link from "next/link";
+import "../../home.css";
+import "./buy.css";
+import { myFunction } from "../../function";
+import SubscribeButton from "@/app/components/SubscribeButtion";
 
+export default async function ProductDetailPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const resolvedParams = await params;
+  const productId = parseInt(resolvedParams.id, 10);
 
-export default function Home() {
+  // --- DIAGNOSTIC CHECK 1: Is the URL a valid number? ---
+  if (isNaN(productId)) {
+    return (
+      <div
+        style={{
+          padding: "100px",
+          textAlign: "center",
+          fontFamily: "sans-serif",
+        }}
+      >
+        <h1 style={{ color: "red", fontSize: "40px" }}>URL Error!</h1>
+        <p style={{ fontSize: "20px" }}>
+          You tried to visit: <b>/product/{resolvedParams.id}</b>
+        </p>
+        <p style={{ fontSize: "20px" }}>
+          The URL must end in a number (like /product/1). Please use the
+          navigation menu to select a product.
+        </p>
+      </div>
+    );
+  }
+
+  const product = await prisma.product.findUnique({
+    where: { id: productId },
+    include: { brand: true, category: true },
+  });
+
+  if (!product) {
+    return (
+      <div
+        style={{
+          padding: "100px",
+          textAlign: "center",
+          fontFamily: "sans-serif",
+        }}
+      >
+        <h1 style={{ color: "red", fontSize: "40px" }}>Database Error!</h1>
+        <p style={{ fontSize: "20px" }}>
+          We looked in TiDB for Product ID: <b>{productId}</b>
+        </p>
+        <p style={{ fontSize: "20px" }}>
+          That product number does not exist in your database. It might have
+          been deleted, or the IDs might start at a higher number.
+        </p>
+        <p style={{ fontSize: "20px" }}>
+          Go to{" "}
+          <Link
+            href="/category/apple"
+            style={{ color: "blue", textDecoration: "underline" }}
+          >
+            /category/apple
+          </Link>{" "}
+          and click a phone to find a valid ID.
+        </p>
+      </div>
+    );
+  }
+
+  // If both checks pass, format the data
+  const colorsArray = product.colors
+    ? product.colors.split(/[,|]/).map((c) => c.trim())
+    : [];
+  const storageArray = product.storage
+    ? product.storage.split(/[,|]/).map((s) => s.trim())
+    : [];
+  const descriptionBullets = product.description
+    ? product.description.split(/\n|\|/).filter((b) => b.trim() !== "")
+    : [];
+
+  //html
   return (
     <>
-      {/* <div class="all"> */}
       <div className="fix">
         <div className="head">
           <p>
@@ -108,282 +185,60 @@ export default function Home() {
           </a>
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <div className="mid">
-        <div className="advs">
-          <br />
-          <span>iPhone 14 Pro</span>
-          <br />
-          <span>Pro. Beyond.</span>
-          <br />
-          <a href="buy2.html" className="tag">
-            {" "}
-            Learn more <img src="photo/right-arrow.png" className="arrow1" />
-          </a>
-          <a href="buy2.html" className="tag">
-            {" "}
-            Buy <img src="photo/right-arrow.png" className="arrow1" />
-          </a>
-          <video autoPlay loop muted className="adv">
-            <source src="video/14pro.mp4" type="video/mp4" />
-          </video>
+      <main className="container">
+        <div className="left-column">
+          <img className="active" src={product.imageUrl} alt={product.name} />
         </div>
-        {/* <img src="./photo/back.jpg" class="adv"> */}
-      </div>
-      <div className="harry">
-        <div className="harry1">
-          <h1>
-            <i> msi</i>
-          </h1>
-          <h2>GE76 Raider</h2>
-          <h3>
-            LIGHT <span>'EM UP</span>
-          </h3>
-          {/* <center><a href="buy1.html"><button class="button7"><span>Buy</span></button></a></center> */}
-          <img src="photo/1024 (1).png" width="300px" />
-          <br />
-          <br />
-          <center>
-            <a href="buy30.html">
-              <button className="button7">
-                <span>Buy now</span>
-              </button>
-            </a>
-          </center>
-        </div>
-        <div className="harry2">
-          <video autoPlay loop muted>
-            <source src="video/a.webm" type="video/webm" />
-          </video>
-        </div>
-      </div>
-      <div>
-        <img src="photo/screen.png" width="100%" />
-      </div>
-      {/* <div class="mid">
-	<div class="mid1">
-				<div class="advs">
-				<span>iPhone 14 Pro</span>
-				<br>
-				<span>Pro. Beyond.</span>
-				<br>
-				<a href="" class="tag"> Learn more<img src="./photo/right-arrow.png" class="arrow1"></a>
-				<a href="" class="tag"> Buy now <img src="./photo/right-arrow.png" class="arrow1"></a>
-				
-				</div>
-				<img src="./photo/back.jpg" class="adv">
-			</div>
 
-	<div class="mid2">
-		
-		
-	</div>		
-</div> */}
-      <br />
-      {/* <center><span class="trend">Trending Now</span></center>
-<br><br><br>
-<div class="lineup">
-	
-	<div class="border">
-		<img src="./photo/14prob.jpg" class="l1">
-		
-
-		<figcaption class="l2">iPhone 14pro</figcaption>
-		<figcaption class="l3">3,430,000 MMK</figcaption>
-	
-
-		
-	</div>
-	<div class="border">
-		<img src="./photo/zfold4.webp" class="l1">
-
-		<figcaption class="l2">Samsung zFold4</figcaption>
-		<figcaption class="l3">3,430,000 MMK</figcaption>
-
-		
-		
-	</div>
-	<div class="border">
-		<img src="./photo/p50problack.png" class="l1">
-
-		<figcaption class="l2">Huawei P50pro</figcaption>
-		<figcaption class="l3">3,430,000 MMK</figcaption>
-
-		
-		
-	</div>
-	<div class="border">
-		<img src="./photo/zflip4.webp" class="l1">
-
-		<figcaption class="l2">Zflip 4</figcaption>
-		<figcaption class="l3">3,430,000 MMK</figcaption>
-
-		
-	</div>
-	
-
-</div> */}
-      <div>
-        <div className="zi">
-          <center>
-            <span>iPhone 14</span>
-            <br />
-          </center>
-          <center>
-            <span style={{ fontSize: 40 }}>Wonderful</span>
-            <br />
-          </center>
-          <center>
-            <a href="buy4.html" className="tag">
-              {" "}
-              Learn more <img src="photo/right-arrow.png" className="arrow1" />
-            </a>
-            <a href="buy3.html" className="tag">
-              {" "}
-              Buy <img src="photo/right-arrow.png" className="arrow1" />
-            </a>
-          </center>
-          <img src="photo/14alll.jpg" />
-        </div>
-      </div>
-      {/* <div class="banner">
-  
-</div> */}
-      <div className="fixx">
-        <div className="midd">
-          <div className="advss">
-            <span>ROG Strix</span>
-            <br />
-            <span>Zephyrus DUO 16</span>
-            <br />
-            <span>Two Screen. Zero Boundry</span>
-            <br />
-            {/* <a href="" class="tag"> Learn more <img src="./photo/right-arrow.png" class="arrow1"></a>
-	<a href="" class="tag"> Buy <img src="./photo/right-arrow.png" class="arrow1"></a> */}
+        <div className="right-column">
+          <div className="product-description">
+            <span>{product.category.name}</span>
+            <h1>{product.name}</h1>
+            <div>
+              <ul
+                style={{
+                  paddingLeft: "20px",
+                  color: "#86939E",
+                  lineHeight: "24px",
+                  fontWeight: 300,
+                }}
+              >
+                {descriptionBullets.map((bullet, index) => (
+                  <li key={index}>{bullet}</li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <img src="photo/h732.png" />
-          <center>
-            <a href="buy32.html">
-              <button className="button7">
-                <span>Buy</span>
-              </button>
-            </a>
-          </center>
-        </div>
-        <video autoPlay loop muted>
-          <source src="video/rog.webm" type="video/webm" />
-        </video>
-      </div>
-      <div>
-        <img src="photo/detai.png" width="99.8%" />
-      </div>
-      <br />
-      <br />
-      <center>
-        <span className="trend">Trending Now</span>
-      </center>
-      <div className="lineup">
-        <div className="border">
-          <a href="buy30.html">
-            <img src="photo/kv-pd.png" className="l11" />
-          </a>
-          <figcaption className="l22">Raider GE75</figcaption>
-          <figcaption className="l33">8,640,000 MMK</figcaption>
-          <a href="buy2.html">
-            <img src="photo/14prblack.png" className="l11" />
-          </a>
-          <figcaption className="l22">iPhone 14 Pro</figcaption>
-          <figcaption className="l33">3,430,000 MMK</figcaption>
-        </div>
-        <div className="border">
-          <a href="buy20.html">
-            <img src="photo/macair.png" className="l11" />
-          </a>
-          <figcaption className="l22">Macbook Air M2</figcaption>
-          <figcaption className="l33">2,430,000 MMK</figcaption>
-          <a href="buy31.html">
-            <img src="photo/msi_modern_14.jpg" className="l11" />
-          </a>
-          <figcaption className="l22">msi Modern 14</figcaption>
-          <figcaption className="l33">2,010,000 MMK</figcaption>
-        </div>
-        <div className="border">
-          <a href="./buy8.html">
-            <img src="photo/zflip4.webp" className="l11" />
-          </a>
-          <figcaption className="l22">Z Flip 4</figcaption>
-          <figcaption className="l33">3,110,000 MMK</figcaption>
-          <a href="buy11.html">
-            <img src="photo/p50pocket.png" className="l11" />
-          </a>
-          <figcaption className="l22">P50 Pocket</figcaption>
-          <figcaption className="l33">3,430,000 MMK</figcaption>
-        </div>
-        <div className="border">
-          <a href="buy24.html">
-            <img src="photo/zenbookduo.png" className="l11" />
-          </a>
-          <figcaption className="l22">Zenbook Duo</figcaption>
-          <figcaption className="l33">2,640,000 MMK</figcaption>
-          <a href="buy28.html">
-            <img src="photo/yoga.jpg" className="l11" />
-          </a>
-          <figcaption className="l22">Yoga 9i</figcaption>
-          <figcaption className="l33">2,010,000 MMK</figcaption>
-        </div>
-      </div>
-      <br />
-      <br />
-      <br />
-      <div>
-        <div className="zzi">
-          <center>
-            <span style={{ color: "red", fontSize: 27 }}>SERIES 8</span>
-            <br />
-          </center>
-          <center>
-            <span>A healthy leap ahead.</span>
-            <br />
-          </center>
-          <center>
-            <a href="buy14.html" className="tag">
-              {" "}
-              Learn more <img src="photo/right-arrow.png" className="arrow1" />
-            </a>
-            <a href="buy14.html" className="tag">
-              {" "}
-              Buy <img src="photo/right-arrow.png" className="arrow1" />
-            </a>
-          </center>
-          <img src="photo/watch.jpg" width="100%" />
-        </div>
-      </div>
-      <div className="gg">
-        <div className="slider">
-          <div className="images">
-            <input type="radio" name="slide" id="img1" defaultChecked></input>
-            <input type="radio" name="slide" id="img2"></input>
-            <input type="radio" name="slide" id="img3"></input>
-            <input type="radio" name="slide" id="img4"></input>
-            <video autoPlay loop muted className="m1" id="img1">
-              <source src="video/bulidairpod.webm" type="video/webm" />
-            </video>
-            <video autoPlay loop muted className="m2" id="img2">
-              <source src="video/mac.webm" type="video/webm" />
-            </video>
-            <video autoPlay loop muted className="m3" id="img3">
-              <source src="video/h2.webm" type="video/webm" />
-            </video>
+
+          <div className="product-configuration">
+            <div className="cable-config">
+              <span>Color</span>
+              <div className="cable-choose">
+                {colorsArray.map((color, index) => (
+                  <button key={index}>{color}</button>
+                ))}
+              </div>
+            </div>
+
+            <div className="cable-config2">
+              <span>Storage Capacity</span>
+              <div className="cable-choose2">
+                {storageArray.map((storage, index) => (
+                  <button key={index}>{storage}</button>
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="dots">
-            <label htmlFor="img1" />
-            <label htmlFor="img2" />
-            <label htmlFor="img3" />
+
+          <div className="product-price">
+            <span>{product.price.toLocaleString()} MMK</span>
+            <Link href="/cart" className="cart-btn">
+              Add to cart
+            </Link>
           </div>
         </div>
-      </div>
+      </main>
+
       {/* <div class="ban">
 <div class="banner">
   

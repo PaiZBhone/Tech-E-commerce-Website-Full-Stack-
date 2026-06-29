@@ -1,0 +1,35 @@
+.head
+{
+  height: 120px;
+}
+.hehe
+{
+  margin: auto;
+}
+.main1
+{
+    width: 40px;
+    height: 30px;
+    float: right;
+    padding: 20px;
+}
+.title
+{
+    font-size: 50px;
+  text-decoration: none;
+  color: black;
+ font-family:sans-serif;
+  
+  
+}
+.pro
+{
+    font-size: 10px;
+    font-family: 'Franklin Gothic Medium';
+    word-spacing: 2px;
+    white-space: 50px;
+    letter-spacing: 2px;
+  font-weight: 400;
+  color: red;
+}
+/* cart start here */

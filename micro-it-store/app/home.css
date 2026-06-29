@@ -1,3 +1,6 @@
+body{
+  overflow-x: hidden;
+}
 .head {
   height: 120px;
 }
@@ -58,6 +61,7 @@
   letter-spacing: 2px;
   font-weight: 400;
   color: red;
+  overflow-x: hidden;
 }
 .arrow {
   width: 15px;
@@ -420,6 +424,7 @@
 }
 .other {
   margin-bottom: 100px;
+  padding-left: 150px;
 }
 .footer {
   margin-top: 100px;
@@ -1159,7 +1164,7 @@ span.psw {
 }
 .marquee-container{
   width: 100%;
-  overflow: hidden
+  overflow: hidden;
 }
 .marquee {
   width: 100%;

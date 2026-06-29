@@ -1,5 +1,6 @@
 datasource db {
   provider = "mysql"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
@@ -24,13 +25,13 @@ model Brand {
 // 3. Dynamic Products Table
 model Product {
   id          Int      @id @default(autoincrement())
-  name        String   // e.g., "iPhone 14 Plus" or "MSI Titan"
-  price       Float    // Price in MMK (e.g., 2640000)
-  imageUrl    String   // Managed via Cloudinary assets
-  colors      String   // Comma separated options: "Starlight,Midnight,Blue"
-  storage     String   // Comma separated options: "128 GB,256 GB,512 GB"
-  
-  // Relations
+  name        String   
+  price       Float    
+  imageUrl    String   
+  colors      String   
+  storage     String   
+  description String   @db.Text // <-- ADD THIS LINE for the bullet points
+
   categoryId  Int
   category    Category @relation(fields: [categoryId], references: [id])
   brandId     Int
