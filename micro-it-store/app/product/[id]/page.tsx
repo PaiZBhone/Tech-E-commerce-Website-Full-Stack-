@@ -4,6 +4,7 @@ import "../../home.css";
 import "./buy.css";
 import { myFunction } from "../../function";
 import SubscribeButton from "@/app/components/SubscribeButtion";
+import AddToCartButton from "@/app/components/addtocart";
 
 export default async function ProductDetailPage({
   params,
@@ -210,32 +211,11 @@ export default async function ProductDetailPage({
             </div>
           </div>
 
-          <div className="product-configuration">
-            <div className="cable-config">
-              <span>Color</span>
-              <div className="cable-choose">
-                {colorsArray.map((color, index) => (
-                  <button key={index}>{color}</button>
-                ))}
-              </div>
-            </div>
-
-            <div className="cable-config2">
-              <span>Storage Capacity</span>
-              <div className="cable-choose2">
-                {storageArray.map((storage, index) => (
-                  <button key={index}>{storage}</button>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="product-price">
-            <span>{product.price.toLocaleString()} MMK</span>
-            <Link href="/cart" className="cart-btn">
-              Add to cart
-            </Link>
-          </div>
+          <AddToCartButton
+            product={product}
+            colorsArray={colorsArray}
+            storageArray={storageArray}
+          />
         </div>
       </main>
 

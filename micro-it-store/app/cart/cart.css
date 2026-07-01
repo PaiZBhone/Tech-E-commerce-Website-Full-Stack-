@@ -1,35 +1,62 @@
-.head
-{
+.head {
   height: 120px;
 }
-.hehe
-{
+.hehe {
   margin: auto;
 }
-.main1
-{
-    width: 40px;
-    height: 30px;
-    float: right;
-    padding: 20px;
+.main1 {
+  width: 40px;
+  height: 30px;
+  float: right;
+  padding: 20px;
 }
-.title
-{
-    font-size: 50px;
+.title {
+  font-size: 50px;
   text-decoration: none;
   color: black;
- font-family:sans-serif;
-  
-  
+  font-family: sans-serif;
 }
-.pro
-{
-    font-size: 10px;
-    font-family: 'Franklin Gothic Medium';
-    word-spacing: 2px;
-    white-space: 50px;
-    letter-spacing: 2px;
+.pro {
+  font-size: 10px;
+  font-family: "Franklin Gothic Medium";
+  word-spacing: 2px;
+  white-space: 50px;
+  letter-spacing: 2px;
   font-weight: 400;
   color: red;
 }
 /* cart start here */
+:root {
+  --red-color: #e74c3c;
+}
+.htoo4 button {
+  box-sizing: border-box;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid var(--red-color);
+  border-radius: 0.4em;
+  color: var(--red-color);
+  cursor: pointer;
+  display: inline-flex;
+  align-self: center;
+  font-size: 0.85rem;
+  line-height: 1;
+  margin: 10px;
+  padding: 0.6em 1.5em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+
+  /* Smooth transition effect */
+  transition:
+    box-shadow 300ms ease-in-out,
+    color 300ms ease-in-out;
+}
+.htoo4 button:hover,
+.htoo4 button:focus {
+  color: #fff;
+  outline: 0;
+  box-shadow: 0 0 20px 20px var(--red-color) inset;
+}

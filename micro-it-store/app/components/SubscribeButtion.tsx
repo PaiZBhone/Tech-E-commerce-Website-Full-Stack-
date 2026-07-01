@@ -1,6 +1,9 @@
 "use client";
 
+
+
 export default function SubscribeButton() {
+  
   
  
   const handleSubscribe = () => {
