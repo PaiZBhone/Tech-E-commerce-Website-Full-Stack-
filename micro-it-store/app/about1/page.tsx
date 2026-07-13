@@ -1,32 +1,11 @@
-import prisma from "@/lib/prisma";
-import { redirect } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import "../home.css";
-import "../review/review.css";
+import "../about/about.css";
+import { myFunction } from "../function";
 import SubscribeButton from "../components/SubscribeButtion";
 
-export default function ContactPage() {
-  // --- SERVER ACTION ---
-  async function submitMessage(formData: FormData) {
-    "use server";
-
-    const firstName = formData.get("firstName") as string;
-    const lastName = formData.get("lastName") as string;
-    const phone = formData.get("phone") as string;
-    const message = formData.get("message") as string;
-
-    await prisma.contactMessage.create({
-      data: {
-        firstName,
-        lastName,
-        phone,
-        message,
-      },
-    });
-
-    redirect("/contact?success=true");
-  }
-
+export default function Home() {
   return (
     <>
       {/* <div class="all"> */}
@@ -159,83 +138,73 @@ export default function ContactPage() {
       <br />
       <br />
       <>
-        <br />
-        <div className="form2">
-          <h1>Contact Us</h1>
-          <h4>Have any questions? We'd love to hear from you.</h4>
-        </div>
-        <br />
-
-        {/* Form wrapper perfectly matching your original HTML flow */}
-        <form action={submitMessage}>
-          <div className="form1">
-            <div className="kopaing1">
-              <input
-                type="text"
-                placeholder="First Name"
-                name="firstName"
-                required
-              />
-              <br />
-              <br />
-              <br />
-              <input
-                type="text"
-                placeholder="Last Name"
-                name="lastName"
-                required
-              />
-              <br />
-              <br />
-              <br />
-              <input
-                type="text"
-                placeholder="Your Phone"
-                name="phone"
-                required
-              />
+        <div className="mid">
+          <div className="mid1">
+            <h1>About Micro iT</h1>
+            <p>
+              Micro iT is the largest and leading Authorized Reseller in
+              Myanmar, providing a wide range of the latest iT products such as
+              Mobile Phone, Tablet, Laptop, Smart Watch,and Accessories. We also
+              offer a diverse selection of branded and third-party accessories,
+              giving our customers an unparalleled shopping experience..
+            </p>
+            <p>
+              Our team of well-trained and passionate staff is dedicated to
+              deliver exceptional support and services to all our customers. We
+              are committed to provide an outstanding iT products experience
+              that exceeds our customer’s expectations.
+            </p>
+            <p>
+              We currently have multiple retail stores in Yangon and coming soon
+              in Mandalay. Our first retail and largest store is located on
+              Modern City Tower, followed by the second one at Time City. We
+              also deliver our products and services to customers all across
+              Myanmar.
+            </p>
+            <p>
+              Micro iT is a subsidiary of Micro Technology Company Limited,
+              which provides us with access to a robust network and extensive
+              resources to offer our customers even better and more diverse
+              services
+            </p>
+            <div className="mid2">
+              <img src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772163/about1_tp476v.jpg" />
+              <img src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772162/about_pklhuo.jpg" />
             </div>
-
-            <div className="kopaing">
-              <textarea
-                name="message"
-                placeholder="Your Message here"
-                rows={10}
-                cols={50}
-                className="mytext"
-                required
-              ></textarea>
-            </div>
-          </div>
-
-          <br />
-          <br />
-          <button type="submit" className="button4">
-            Confirm
-          </button>
-        </form>
-
-        <br />
-        <br />
-        <br />
-        <br />
-        <div className="time">
-          <div className="mesg">
-            <img src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772174/email_v7dofi.png" />
-          </div>
-          <div className="work">
-            <img src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772164/alarm_tnjc22.png" />
-          </div>
-        </div>
-        <div className="time">
-          <div className="mesg1">
-            <h3>Chat Directly With Our Customer Serivce?</h3>
-            <a href="./photo/facebook.png">Messenger</a>
-          </div>
-          <div className="work1">
-            <h3>Office Hour</h3>
-            <h4>Open daily</h4>
-            <h4>8:00AM to 4:30PM</h4>
+            <h1>Our Mission</h1>
+            <p>
+              our mission is to provide a seamless and user-friendly online
+              platform for customers to discover, explore, and purchase a wide
+              range of high-quality IT products. We aim to create an exceptional
+              shopping experience by offering an extensive selection of
+              products, delivering excellent customer service, and fostering
+              trust and satisfaction among our valued customers.
+            </p>
+            <p>
+              We are committed to provide an outstanding Apple experience that
+              exceeds our customer’s expectations.
+            </p>
+            <p>
+              Join us on our mission to provide a premier IT shopping
+              destination, where technology enthusiasts can explore, purchase,
+              and elevate their digital experiences. Start browsing our wide
+              range of IT products today!
+            </p>
+            <h1>Our Vision</h1>
+            <p>
+              At our Micro iT store, we envision being the leading online
+              destination for IT products, where customers can find everything
+              they need to stay connected, productive, and empowered in the
+              digital world. We strive to be recognized as a trusted and
+              reliable source for high-quality IT products, offering exceptional
+              value, convenience, and an unparalleled shopping experience.
+            </p>
+            <p>
+              Join us on our journey to shape the future of IT retail, where
+              technology meets convenience, expertise, and exceptional customer
+              experiences. Together, let's embrace the digital world and unlock
+              its limitless potential!
+            </p>
           </div>
         </div>
       </>

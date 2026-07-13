@@ -1,32 +1,33 @@
+import Image from "next/image";
 import prisma from "@/lib/prisma";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import "../home.css";
-import "../review/review.css";
+import "./review.css";
+import { myFunction } from "../function";
 import SubscribeButton from "../components/SubscribeButtion";
 
-export default function ContactPage() {
-  // --- SERVER ACTION ---
-  async function submitMessage(formData: FormData) {
-    "use server";
+async function submitMessage(formData: FormData) {
+  "use server";
 
-    const firstName = formData.get("firstName") as string;
-    const lastName = formData.get("lastName") as string;
-    const phone = formData.get("phone") as string;
-    const message = formData.get("message") as string;
+  const firstName = formData.get("firstName") as string;
+  const lastName = formData.get("lastName") as string;
+  const phone = formData.get("phone") as string;
+  const message = formData.get("message") as string;
 
-    await prisma.contactMessage.create({
-      data: {
-        firstName,
-        lastName,
-        phone,
-        message,
-      },
-    });
+  await prisma.contactMessage.create({
+    data: {
+      firstName,
+      lastName,
+      phone,
+      message,
+    },
+  });
 
-    redirect("/contact?success=true");
-  }
+  redirect("/contact?success=true");
+}
 
+export default function Home() {
   return (
     <>
       {/* <div class="all"> */}
@@ -160,13 +161,13 @@ export default function ContactPage() {
       <br />
       <>
         <br />
+        <br />
+        <br />
         <div className="form2">
-          <h1>Contact Us</h1>
-          <h4>Have any questions? We'd love to hear from you.</h4>
+          <h1>Reviews</h1>
+          <h4>We'd love to hear from you.</h4>
         </div>
         <br />
-
-        {/* Form wrapper perfectly matching your original HTML flow */}
         <form action={submitMessage}>
           <div className="form1">
             <div className="kopaing1">
@@ -199,7 +200,7 @@ export default function ContactPage() {
             <div className="kopaing">
               <textarea
                 name="message"
-                placeholder="Your Message here"
+                placeholder="Your Review here"
                 rows={10}
                 cols={50}
                 className="mytext"
@@ -215,8 +216,6 @@ export default function ContactPage() {
           </button>
         </form>
 
-        <br />
-        <br />
         <br />
         <br />
         <div className="time">

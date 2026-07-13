@@ -1,4 +1,4 @@
-body{
+body {
   overflow-x: hidden;
 }
 .head {
@@ -6,7 +6,7 @@ body{
 }
 .fixx {
   padding-top: 30px;
-  width: 1500px;
+  width: 100%;
   display: flex;
   background: #000;
 }
@@ -195,8 +195,11 @@ body{
 .taskbar4:hover .taskbar-content4 {
   display: block;
 }
+.mid{
+  width: 100%;
+}
 .midd {
-  width: 600px;
+  width: 100%;
 }
 .midd img {
   width: 600px;
@@ -1162,7 +1165,7 @@ span.psw {
   background-color: #000;
   padding-top: 50px;
 }
-.marquee-container{
+.marquee-container {
   width: 100%;
   overflow: hidden;
 }
@@ -1182,3 +1185,5 @@ span.psw {
     transform: translateX(100%);
   }
 }
+
+

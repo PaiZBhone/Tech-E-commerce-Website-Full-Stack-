@@ -1,36 +1,16 @@
-import prisma from "@/lib/prisma";
-import { redirect } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import "../home.css";
-import "../review/review.css";
+import "./about3.css";
+import "../about/about.css";
+import { myFunction } from "../function";
 import SubscribeButton from "../components/SubscribeButtion";
 
-export default function ContactPage() {
-  // --- SERVER ACTION ---
-  async function submitMessage(formData: FormData) {
-    "use server";
-
-    const firstName = formData.get("firstName") as string;
-    const lastName = formData.get("lastName") as string;
-    const phone = formData.get("phone") as string;
-    const message = formData.get("message") as string;
-
-    await prisma.contactMessage.create({
-      data: {
-        firstName,
-        lastName,
-        phone,
-        message,
-      },
-    });
-
-    redirect("/contact?success=true");
-  }
-
+export default function Home() {
   return (
     <>
       {/* <div class="all"> */}
-      <div className="fix">
+    <div className="fix">
         <div className="head">
           <p>
             <Link href="../../" className="title">
@@ -159,87 +139,88 @@ export default function ContactPage() {
       <br />
       <br />
       <>
-        <br />
-        <div className="form2">
-          <h1>Contact Us</h1>
-          <h4>Have any questions? We'd love to hear from you.</h4>
-        </div>
-        <br />
+<div className="main">
+  <div className="faq">
+    <h1>Shipping</h1>
+    <span>Do we Ship overseas?</span>
+    <p>
+      At the moment, we don't ship outside Myanmar. Sorry for the inconvenience.
+      We will try to expand our services soon.
+    </p>
+    <br />
+    <span>Do you ship nationwide?</span>
+    <p>
+      Yes, we ship all over the country. Shipping costs apply depending upon
+      size and the shipping address. We run discounts and promotions all year,
+      so stay tuned for more exclusive deals.
+    </p>
+    <br />
+    <span>How long will it take to get my order?</span>
+    <p>
+      It depends on where you are. For most of the major cities and townships in
+      Myanmar, orders processed here will take 1-3 business days to arrive.
+      Other areas can take from 2-5 days.Delivery details will be provided in
+      your confirmation email or mobile.
+    </p>
+    <br />
+    <span>What shipping carriers do you use?</span>
+    <p>
+      We use all major carriers, and local courier partners. You’ll be asked to
+      select a delivery method during checkout..
+    </p>
+    <br />
+  </div>
+  <br />
+  <div className="faq">
+    <h1>Product</h1>
+    <span>Can I return my product?</span>
+    <p>
+      We always aim for make sure our customers love our products, but if you do
+      need to return an order, we’re happy to help. Just email us directly and
+      we’ll take you through the process.
+    </p>
+    <br />
+    <span>Do you ship nationwide?</span>
+    <p>
+      Yes, we ship all over the country. Shipping costs apply depending upon
+      size and the shipping address. We run discounts and promotions all year,
+      so stay tuned for more exclusive deals.
+    </p>
+    <br />
+    <span>Do the product have warranty?</span>
+    <p>
+      Yes, We only sell official product. We will support software and hardware
+      warranty for every products. Warranty years may be depend on your product.
+    </p>
+    <br />
+    <span>Can I get my product personalized?</span>
+    <p>
+      It depends on the creator and the product. All options are outlined on the
+      product page, so look out for customization options there.
+    </p>
+    <br />
+  </div>
+  <br />
+  <div className="faq">
+    <h1>Any Question?</h1>
+    <span>
+      You can contact us through our contact page! We will be happy to assist
+      you.
+    </span>
+    <br />
+    <br />
+    <br />
+    <a href="about2">
+      <button className="button">
+        <span>Contact</span>
+      </button>
+    </a>
+  </div>
+</div>
 
-        {/* Form wrapper perfectly matching your original HTML flow */}
-        <form action={submitMessage}>
-          <div className="form1">
-            <div className="kopaing1">
-              <input
-                type="text"
-                placeholder="First Name"
-                name="firstName"
-                required
-              />
-              <br />
-              <br />
-              <br />
-              <input
-                type="text"
-                placeholder="Last Name"
-                name="lastName"
-                required
-              />
-              <br />
-              <br />
-              <br />
-              <input
-                type="text"
-                placeholder="Your Phone"
-                name="phone"
-                required
-              />
-            </div>
+</>
 
-            <div className="kopaing">
-              <textarea
-                name="message"
-                placeholder="Your Message here"
-                rows={10}
-                cols={50}
-                className="mytext"
-                required
-              ></textarea>
-            </div>
-          </div>
-
-          <br />
-          <br />
-          <button type="submit" className="button4">
-            Confirm
-          </button>
-        </form>
-
-        <br />
-        <br />
-        <br />
-        <br />
-        <div className="time">
-          <div className="mesg">
-            <img src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772174/email_v7dofi.png" />
-          </div>
-          <div className="work">
-            <img src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772164/alarm_tnjc22.png" />
-          </div>
-        </div>
-        <div className="time">
-          <div className="mesg1">
-            <h3>Chat Directly With Our Customer Serivce?</h3>
-            <a href="./photo/facebook.png">Messenger</a>
-          </div>
-          <div className="work1">
-            <h3>Office Hour</h3>
-            <h4>Open daily</h4>
-            <h4>8:00AM to 4:30PM</h4>
-          </div>
-        </div>
-      </>
-
+ 
       {/* Footer */}
 
       <div className="gmailbar">
@@ -381,6 +362,7 @@ export default function ContactPage() {
       >
         © Micro Technology Company Limited 2023. All Rights Reserved
       </span>
+
     </>
   );
 }

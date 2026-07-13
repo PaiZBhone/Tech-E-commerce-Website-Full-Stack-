@@ -1,35 +1,56 @@
-import prisma from "@/lib/prisma";
-import { redirect } from "next/navigation";
 import Link from "next/link";
-import "../home.css";
-import "../review/review.css";
-import SubscribeButton from "../components/SubscribeButtion";
+import prisma from "@/lib/prisma";
+// Make sure to import your global CSS file here if it's not in your layout.tsx
+import "../../../home.css";
+import "./category.css";
+import SubscribeButton from "@/app/components/SubscribeButtion";
 
-export default function ContactPage() {
-  // --- SERVER ACTION ---
-  async function submitMessage(formData: FormData) {
-    "use server";
+export default async function FilteredCategoryPage({
+  params,
+}: {
+  params: Promise<{ category: string; brand: string }>;
+}) {
+  const resolvedParams = await params;
 
-    const firstName = formData.get("firstName") as string;
-    const lastName = formData.get("lastName") as string;
-    const phone = formData.get("phone") as string;
-    const message = formData.get("message") as string;
+  // Format the Category Name
+  let formattedCategory = decodeURIComponent(resolvedParams.category).replace(
+    /-/g,
+    " ",
+  );
+  formattedCategory = formattedCategory.replace(/\b\w/g, (char) =>
+    char.toUpperCase(),
+  );
 
-    await prisma.contactMessage.create({
-      data: {
-        firstName,
-        lastName,
-        phone,
-        message,
+  // Format the Brand Name
+  let formattedBrand = decodeURIComponent(resolvedParams.brand).replace(
+    /-/g,
+    " ",
+  );
+  formattedBrand = formattedBrand.replace(/\b\w/g, (char) =>
+    char.toUpperCase(),
+  );
+
+  // Fetch from Database
+  const products = await prisma.product.findMany({
+    where: {
+      category: {
+        name: formattedCategory,
       },
-    });
+      brand: {
+        name: formattedBrand,
+      },
+    },
+  });
 
-    redirect("/contact?success=true");
+  // Chunk products into groups of 3 to match the HTML <div className="border"> layout
+  const chunkedProducts = [];
+  for (let i = 0; i < products.length; i += 3) {
+    chunkedProducts.push(products.slice(i, i + 3));
   }
 
   return (
     <>
-      {/* <div class="all"> */}
+      {/* Header */}
       <div className="fix">
         <div className="head">
           <p>
@@ -80,15 +101,15 @@ export default function ContactPage() {
               />
             </span>
             <div className="taskbar-content">
-              <a href="phone1.html" className="g">
+              <Link href="/category/mobile-phone/Apple" className="g">
                 <p>iPhone</p>
-              </a>
-              <a href="phone2.html" className="g">
+              </Link>
+              <Link href="/category/mobile-phone/samsung" className="g">
                 <p>Samsung</p>
-              </a>
-              <a href="phone3.html" className="g">
+              </Link>
+              <Link href="/category/mobile-phone/huawei" className="g">
                 <p>Huawei</p>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="taskbar3">
@@ -100,12 +121,12 @@ export default function ContactPage() {
               />
             </span>
             <div className="taskbar-content3">
-              <a href="watch1.html" className="g">
+              <Link href="/category/smart-watch/apple" className="g">
                 <p>Apple</p>
-              </a>
-              <a href="watch2.html" className="g">
+              </Link>
+              <Link href="/category/smart-watch/samsung" className="g">
                 <p>Samsung</p>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="taskbar2">
@@ -117,18 +138,18 @@ export default function ContactPage() {
               />
             </span>
             <div className="taskbar-content2">
-              <a href="laptop2.html" className="g">
+              <Link href="/category/notebook/asus" className="g">
                 <p>Asus</p>
-              </a>
-              <a href="laptop3.html" className="g">
+              </Link>
+              <Link href="/category/notebook/lenovo" className="g">
                 <p>Lenovo</p>
-              </a>
-              <a href="laptop1.html" className="g">
+              </Link>
+              <Link href="/category/notebook/Apple" className="g">
                 <p>Macbook</p>
-              </a>
-              <a href="laptop4.html" className="g">
+              </Link>
+              <Link href="/category/notebook/msi-gaming" className="g">
                 <p>MSI gaming</p>
-              </a>
+              </Link>
             </div>
           </div>
           {/* <div class="taskbar3">
@@ -141,104 +162,143 @@ export default function ContactPage() {
 					
 				</div>
 			</div> */}
-          <a href="about3.html" className="t">
+          <Link href="about3.html" className="t">
             <span>FAQS</span>
-          </a>
-          <a href="about" className="t">
+          </Link>
+          <Link href="./about/page.tsx" className="t">
             <span>Location</span>
-          </a>
-          <a href="about1.html" className="t">
+          </Link>
+          <Link href="about1.html" className="t">
             <span>About Micro IT</span>
-          </a>
-          <a href="about2" className="t">
+          </Link>
+          <Link href="about2.html" className="t">
             <span>Contact</span>
-          </a>
+          </Link>
         </div>
       </div>
       <br />
       <br />
       <br />
-      <>
+
+      {/* Video Trailer */}
+      <div className="trailer">
+        <video autoPlay loop muted className="video">
+          <source src="/video/14.webm" type="video/webm" />
+        </video>
+      </div>
+
+      <div className="kopai">
         <br />
-        <div className="form2">
-          <h1>Contact Us</h1>
-          <h4>Have any questions? We'd love to hear from you.</h4>
+        <br />
+        <br />
+
+        {/* Dynamic Title and Count */}
+        <span className="trend">
+          {formattedBrand} {formattedCategory} ({products.length})
+        </span>
+
+        {/* Dynamic Product Grid */}
+        <div className="lineup">
+          {products.length === 0 ? (
+            <p style={{ padding: "20px" }}>
+              No products found for this category and brand combination.
+            </p>
+          ) : (
+            chunkedProducts.map((group, groupIndex) => (
+              <div className="border" key={groupIndex}>
+                {group.map((product) => (
+                  <div
+                    key={product.id}
+                    style={{ marginBottom: "20px", textAlign: "center" }}
+                  >
+                    <Link href={`/product/${product.id}`}>
+                      <img
+                        src={product.imageUrl || "/photo/logo2.png"}
+                        className="l1"
+                        alt={product.name}
+                      />
+                    </Link>
+                    <figcaption className="l2">{product.name}</figcaption>
+                    <figcaption className="l3">
+                      {product.price.toLocaleString()} MMK
+                    </figcaption>
+                  </div>
+                ))}
+              </div>
+            ))
+          )}
         </div>
-        <br />
+      </div>
 
-        {/* Form wrapper perfectly matching your original HTML flow */}
-        <form action={submitMessage}>
-          <div className="form1">
-            <div className="kopaing1">
-              <input
-                type="text"
-                placeholder="First Name"
-                name="firstName"
-                required
-              />
-              <br />
-              <br />
-              <br />
-              <input
-                type="text"
-                placeholder="Last Name"
-                name="lastName"
-                required
-              />
-              <br />
-              <br />
-              <br />
-              <input
-                type="text"
-                placeholder="Your Phone"
-                name="phone"
-                required
-              />
-            </div>
+      {/* Video Slider */}
+      <div className="gg">
+        <div className="slider">
+          <div className="images">
+            <input type="radio" name="slide" id="img1" defaultChecked />
+            <input type="radio" name="slide" id="img2" />
+            <input type="radio" name="slide" id="img3" />
+            <input type="radio" name="slide" id="img4" />
 
-            <div className="kopaing">
-              <textarea
-                name="message"
-                placeholder="Your Message here"
-                rows={10}
-                cols={50}
-                className="mytext"
-                required
-              ></textarea>
-            </div>
+            <video autoPlay loop muted className="m1">
+              <source src="/video/14yellow.webm" type="video/webm" />
+            </video>
+            <video autoPlay loop muted className="m2">
+              <source src="/video/dynamic.webm" type="video/webm" />
+            </video>
           </div>
-
-          <br />
-          <br />
-          <button type="submit" className="button4">
-            Confirm
-          </button>
-        </form>
-
-        <br />
-        <br />
-        <br />
-        <br />
-        <div className="time">
-          <div className="mesg">
-            <img src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772174/email_v7dofi.png" />
-          </div>
-          <div className="work">
-            <img src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772164/alarm_tnjc22.png" />
-          </div>
-        </div>
-        <div className="time">
-          <div className="mesg1">
-            <h3>Chat Directly With Our Customer Serivce?</h3>
-            <a href="./photo/facebook.png">Messenger</a>
-          </div>
-          <div className="work1">
-            <h3>Office Hour</h3>
-            <h4>Open daily</h4>
-            <h4>8:00AM to 4:30PM</h4>
+          <div className="dots">
+            <label htmlFor="img1"></label>
+            <label htmlFor="img2"></label>
           </div>
         </div>
-      </>
+      </div>
+
+      {/* Card AD */}
+      <div className="other">
+        <div className="credit">
+          <img
+            src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772171/credit-card_zc8zck.png"
+            className="c2"
+          />
+          <figcaption className="c1">We accept Credit/Debit Card</figcaption>
+        </div>
+        <div className="credit1">
+          <img
+            src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772198/payment_c8pfq5.png"
+            className="c2"
+          />
+          <figcaption className="c1">Digital Payment Options</figcaption>
+        </div>
+        <div className="credit2">
+          <img
+            src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772181/install_rpxub9.png"
+            className="c2"
+          />
+          <figcaption className="c1">For Installment payments</figcaption>
+        </div>
+      </div>
+
+      {/* About Section */}
+      <div className="about">
+        <img
+          src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772162/about_pklhuo.jpg"
+          width="500px"
+          height="300px"
+          alt="About"
+        />
+        <div>
+          <span>About Micro It</span>
+          <p className="p1">
+            Micro It is the largest and leading Authorized Reseller in Myanmar,
+            selling the latest products and accessories in multiple stores
+            across Yangon. We provide exceptional support and services through a
+            team of passionate and well-trained staff, committed to deliver an
+            outstanding experience to our customers.We have access to a strong
+            network and extensive resources to provide even better services to
+            our customers.
+          </p>
+        </div>
+      </div>
 
       {/* Footer */}
 
@@ -250,8 +310,8 @@ export default function ContactPage() {
           placeholder="Enter your email address"
         />
         {/* <button className="button2" onClick="myFunction(this, 'green')"> 
-                  subscribe now
-                </button> */}
+                       subscribe now
+                     </button> */}
         <SubscribeButton />
         <a href="https://www.facebook.com/">
           <img
@@ -375,10 +435,7 @@ export default function ContactPage() {
         />
       </div>
       <br />
-      <span
-        className="last"
-        style={{ display: "block", textAlign: "left", marginBottom: "20px" }}
-      >
+      <span className="last">
         © Micro Technology Company Limited 2023. All Rights Reserved
       </span>
     </>
