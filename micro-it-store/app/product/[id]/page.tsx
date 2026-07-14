@@ -86,21 +86,35 @@ export default async function ProductDetailPage({
   //html
   return (
     <>
+    {/* <div class="all"> */}
       <div className="fix">
         <div className="head">
           <p>
-            <a href="../../" className="title">
-              <img src="photo/logo2.png" width="200px" height="150px" />
-            </a>
-            <a href="#">
-              <img src="photo/search.png" className="main1" />
-            </a>
-            <a href="cart.html">
-              <img src="photo/shopping-cart.png" className="main1" />
-            </a>
-            <a href="profile.html">
-              <img src="photo/user.png" className="main1" />
-            </a>
+            <Link href="#" className="title">
+              <img
+                src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772187/logo2_zqjlxs.png"
+                width="200px"
+                height="150px"
+              />
+            </Link>
+            <Link href="#">
+              <img
+                src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772208/search_tyertz.png"
+                className="main1"
+              />
+            </Link>
+            <Link href="/cart">
+              <img
+                src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772209/shopping-cart_sroitn.png"
+                className="main1"
+              />
+            </Link>
+            <Link href="#">
+              <img
+                src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772216/user_ey4xfx.png"
+                className="main1"
+              />
+            </Link>
           </p>
         </div>
         <div className="promotion">
@@ -116,48 +130,60 @@ export default async function ProductDetailPage({
         <div className="hehe">
           <div className="taskbar">
             <span>
-              Mobile Phone <img src="photo/down-arrow.png" className="arrow" />
+              Mobile Phone{" "}
+              <img
+                src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772173/down-arrow_keirfm.png"
+                className="arrow"
+              />
             </span>
             <div className="taskbar-content">
-              <a href="phone1.html" className="g">
+              <a href="category/mobile-phone/apple" className="g">
                 <p>iPhone</p>
               </a>
-              <a href="phone2.html" className="g">
+              <a href="category/mobile-phone/Samsung" className="g">
                 <p>Samsung</p>
               </a>
-              <a href="phone3.html" className="g">
+              <a href="category/mobile-phone/Huawei" className="g">
                 <p>Huawei</p>
               </a>
             </div>
           </div>
           <div className="taskbar3">
             <span>
-              Smart Watch <img src="photo/down-arrow.png" className="arrow" />
+              Smart Watch{" "}
+              <img
+                src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772173/down-arrow_keirfm.png"
+                className="arrow"
+              />
             </span>
             <div className="taskbar-content3">
-              <a href="watch1.html" className="g">
+              <a href="category/smart-watch/apple" className="g">
                 <p>Apple</p>
               </a>
-              <a href="watch2.html" className="g">
+              <a href="category/smart-watch/samsung" className="g">
                 <p>Samsung</p>
               </a>
             </div>
           </div>
           <div className="taskbar2">
             <span>
-              Notebook <img src="photo/down-arrow.png" className="arrow" />
+              Notebook{" "}
+              <img
+                src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772173/down-arrow_keirfm.png"
+                className="arrow"
+              />
             </span>
             <div className="taskbar-content2">
-              <a href="laptop2.html" className="g">
+              <a href="category/notebook/asus" className="g">
                 <p>Asus</p>
               </a>
-              <a href="laptop3.html" className="g">
+              <a href="category/notebook/lenovo" className="g">
                 <p>Lenovo</p>
               </a>
-              <a href="laptop1.html" className="g">
+              <a href="category/notebook/macbook" className="g">
                 <p>Macbook</p>
               </a>
-              <a href="laptop4.html" className="g">
+              <a href="category/notebook/MSI Gaming" className="g">
                 <p>MSI gaming</p>
               </a>
             </div>
@@ -172,16 +198,16 @@ export default async function ProductDetailPage({
 					
 				</div>
 			</div> */}
-          <a href="about3.html" className="t">
+          <a href="about3" className="t">
             <span>FAQS</span>
           </a>
-          <a href="./about/page.tsx" className="t">
+          <a href="about" className="t">
             <span>Location</span>
           </a>
-          <a href="about1.html" className="t">
+          <a href="about1" className="t">
             <span>About Micro IT</span>
           </a>
-          <a href="about2.html" className="t">
+          <a href="about2" className="t">
             <span>Contact</span>
           </a>
         </div>
@@ -218,23 +244,36 @@ export default async function ProductDetailPage({
           />
         </div>
       </main>
-
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
       {/* <div class="ban">
 <div class="banner">
-  
-</div>
-</div> */}
+      {/* Card AD */}
       <div className="other">
         <div className="credit">
-          <img src="photo/credit-card.png" className="c2" />
+          <img
+            src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772171/credit-card_zc8zck.png"
+            className="c2"
+          />
           <figcaption className="c1">We accept Credit/Debit Card</figcaption>
         </div>
         <div className="credit1">
-          <img src="./photo/payment.png" className="c2" />
+          <img
+            src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772198/payment_c8pfq5.png"
+            className="c2"
+          />
           <figcaption className="c1">Digital Payment Options</figcaption>
         </div>
         <div className="credit2">
-          <img src="photo/install.png" className="c2" />
+          <img
+            src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772181/install_rpxub9.png"
+            className="c2"
+          />
           <figcaption className="c1">For Installment payments</figcaption>
         </div>
       </div>
@@ -249,42 +288,7 @@ export default async function ProductDetailPage({
 </div>
 	
 </div> */}
-      {/* ----footer-- */}
-      <div className="footer">
-        <div className="review">
-          <div className="title">
-            <span className="t1">Reviews</span>
-            <br />
-            <br />
-            <span className="t2">We love to hear from you</span>
-            <br />
-            <a href="review.html">
-              <button className="button" style={{ verticalAlign: "middle" }}>
-                <span>Add your thought</span>
-              </button>
-            </a>
-          </div>
-          <div className="form">
-            <div className="sliders">
-              <div className="imagess">
-                <input type="radio" name="slide" id="img11" defaultChecked />
-                <input type="radio" name="slide" id="img22" />
-                <input type="radio" name="slide" id="img33" />
-                <input type="radio" name="slide" id="img44" />
-                <img src="photo/snap1.jpg" className="m11" alt="img11" />
-                <img src="photo/snap2.jpg" className="m22" alt="img22" />
-                <img src="photo/snap3.jpg" className="m33" alt="img33" />
-                <img src="photo/snap4.jpg" className="m44" alt="img44" />
-              </div>
-              <div className="dotss">
-                <label htmlFor="img11" />
-                <label htmlFor="img22" />
-                <label htmlFor="img33" />
-                <label htmlFor="img44" />
-              </div>
-            </div>
-          </div>
-        </div>
+
         <div className="gmailbar">
           <span>Be the first to get latest updates and offers!</span>
           <input
@@ -293,17 +297,26 @@ export default async function ProductDetailPage({
             placeholder="Enter your email address"
           />
           {/* <button className="button2" onClick="myFunction(this, 'green')"> 
-            subscribe now
-          </button> */}
+                  subscribe now
+                </button> */}
           <SubscribeButton />
           <a href="https://www.facebook.com/">
-            <img src="photo/facebook.png" className="gmail" />
+            <img
+              src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772175/facebook_umemqa.png"
+              className="gmail"
+            />
           </a>
           <a href="https://www.twitter.com/">
-            <img src="photo/twitter.png" className="gmail" />
+            <img
+              src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772214/twitter_xutsrp.png"
+              className="gmail"
+            />
           </a>
           <a href="https://www.youtube.com/">
-            <img src="photo/youtube.png" className="gmail" />
+            <img
+              src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772219/youtube_tifwv2.png"
+              className="gmail"
+            />
           </a>
         </div>
         <div className="bottom">
@@ -401,14 +414,21 @@ export default async function ProductDetailPage({
             </div>
           </div>
         </div>
-        <center>
-          <img src="photo/mylast.png" style={{ width: 500 }} />
-        </center>
+        <div style={{ textAlign: "center" }}>
+          <img
+            src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772193/mylast_fwd9yn.png"
+            style={{ width: 500 }}
+            alt="Last"
+          />
+        </div>
         <br />
-        <span className="last">
+        <span
+          className="last"
+          style={{ display: "block", textAlign: "left", marginBottom: "20px" }}
+        >
           © Micro Technology Company Limited 2023. All Rights Reserved
         </span>
-      </div>
+
     </>
   );
 }

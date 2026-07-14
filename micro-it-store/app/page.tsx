@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       {/* <div class="all"> */}
-    <div className="fix">
+      <div className="fix">
         <div className="head">
           <p>
             <Link href="#" className="title">
@@ -145,11 +145,19 @@ export default function Home() {
           <br />
           <a href="product/1" className="tag">
             {" "}
-            Learn more <img src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772173/down-arrow_keirfm.png" className="arrow1" />
+            Learn more{" "}
+            <img
+              src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772173/down-arrow_keirfm.png"
+              className="arrow1"
+            />
           </a>
           <a href="product/1" className="tag">
             {" "}
-            Buy <img src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772173/down-arrow_keirfm.png" className="arrow1" />
+            Buy{" "}
+            <img
+              src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772173/down-arrow_keirfm.png"
+              className="arrow1"
+            />
           </a>
           <video autoPlay loop muted className="adv">
             <source
@@ -162,9 +170,7 @@ export default function Home() {
       </div>
       <div className="harry">
         <div className="harry1">
-          <h1>
-            <i> msi</i>
-          </h1>
+          <h1>MSI</h1>
           <h2>GE76 Raider</h2>
           <h3>
             LIGHT <span>'EM UP</span>
@@ -172,17 +178,15 @@ export default function Home() {
           {/* <center><a href="buy1.html"><button class="button7"><span>Buy</span></button></a></center> */}
           <img
             src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772160/1024_1_gep05x.png"
-            width="300px"
+            width="500px"
           />
           <br />
           <br />
-          <center>
-            <a href="product/55">
-              <button className="button7">
-                <span>Buy now</span>
-              </button>
-            </a>
-          </center>
+          <a href="product/55">
+            <button className="button7">
+              <span>Buy now</span>
+            </button>
+          </a>
         </div>
         <div className="harry2">
           <video autoPlay loop muted>
@@ -291,7 +295,8 @@ export default function Home() {
             </a>
           </center>
           <center>
-          <img src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772155/14alll_os7qwh.jpg" /></center>
+            <img src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772155/14alll_os7qwh.jpg" />
+          </center>
         </div>
       </div>
       {/* <div class="banner">
@@ -300,30 +305,33 @@ export default function Home() {
       <div className="fixx">
         <div className="midd">
           <div className="advss">
-            <span>ROG Strix</span>
-            <br />
-            <span>Zephyrus DUO 16</span>
-            <br />
+            <h2>ROG Strix</h2>
+            <h2>Zephyrus DUO 16</h2>
             <span>Two Screen. Zero Boundry</span>
             <br />
             {/* <a href="" class="tag"> Learn more <img src="./photo/right-arrow.png" class="arrow1"></a>
 	<a href="" class="tag"> Buy <img src="./photo/right-arrow.png" class="arrow1"></a> */}
           </div>
           <img src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772178/h732_cx3jmy.png" />
-          <center>
-            <a href="buy32.html">
-              <button className="button7">
-                <span>Buy</span>
-              </button>
-            </a>
-          </center>
+
+          <a href="product/37">
+            <button className="button7">
+              <span>Buy</span>
+            </button>
+          </a>
         </div>
         <video autoPlay loop muted>
-          <source src="https://res.cloudinary.com/dbi8luzul/video/upload/v1781772297/asus1_tjvlng.webm" type="video/webm" />
+          <source
+            src="https://res.cloudinary.com/dbi8luzul/video/upload/v1781772297/asus1_tjvlng.webm"
+            type="video/webm"
+          />
         </video>
       </div>
       <div>
-        <img src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772172/detai_kapghq.png" width="100%" />
+        <img
+          src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772172/detai_kapghq.png"
+          width="100%"
+        />
       </div>
       <br />
       <br />
@@ -380,7 +388,7 @@ export default function Home() {
           <figcaption className="l33">2,010,000 MMK</figcaption>
         </div>
       </div>
-      
+
       <br />
       <br />
       <br />
@@ -397,14 +405,25 @@ export default function Home() {
           <center>
             <a href="buy14.html" className="tag">
               {" "}
-              Learn more <img src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772202/right-arrow_qhtj64.png" className="arrow1" />
+              Learn more{" "}
+              <img
+                src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772202/right-arrow_qhtj64.png"
+                className="arrow1"
+              />
             </a>
             <a href="buy14.html" className="tag">
               {" "}
-              Buy <img src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772202/right-arrow_qhtj64.png" className="arrow1" />
+              Buy{" "}
+              <img
+                src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772202/right-arrow_qhtj64.png"
+                className="arrow1"
+              />
             </a>
           </center>
-          <img src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772217/watch_gtwscm.jpg" width="100%" />
+          <img
+            src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772217/watch_gtwscm.jpg"
+            width="100%"
+          />
         </div>
       </div>
       <div className="gg">
@@ -415,13 +434,13 @@ export default function Home() {
             <input type="radio" name="slide" id="img3"></input>
             <input type="radio" name="slide" id="img4"></input>
             <video autoPlay loop muted className="m1" id="img1">
-              <source src="video/bulidairpod.webm" type="video/webm" />
+              <source src="https://res.cloudinary.com/dbi8luzul/video/upload/v1781772335/ultra_shyxtx.webm" type="video/webm" />
             </video>
             <video autoPlay loop muted className="m2" id="img2">
-              <source src="video/mac.webm" type="video/webm" />
+              <source src="https://res.cloudinary.com/dbi8luzul/video/upload/v1781772317/s8_bytdxy.webm" type="video/webm" />
             </video>
             <video autoPlay loop muted className="m3" id="img3">
-              <source src="video/h2.webm" type="video/webm" />
+              <source src="https://res.cloudinary.com/dbi8luzul/video/upload/v1781772344/h2_ew1igc.webm" type="video/webm" />
             </video>
           </div>
           <div className="dots">
@@ -492,10 +511,26 @@ export default function Home() {
                 <input type="radio" name="slide" id="img22" />
                 <input type="radio" name="slide" id="img33" />
                 <input type="radio" name="slide" id="img44" />
-                <img src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772211/snap4_zadmyw.jpg" className="m11" alt="img11" />
-                <img src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772210/snap1_ykxvyj.jpg" className="m22" alt="img22" />
-                <img src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772210/snap3_kdga2k.jpg" className="m33" alt="img33" />
-                <img src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772210/snap2_hz73zr.jpg" className="m44" alt="img44" />
+                <img
+                  src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772211/snap4_zadmyw.jpg"
+                  className="m11"
+                  alt="img11"
+                />
+                <img
+                  src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772210/snap1_ykxvyj.jpg"
+                  className="m22"
+                  alt="img22"
+                />
+                <img
+                  src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772210/snap3_kdga2k.jpg"
+                  className="m33"
+                  alt="img33"
+                />
+                <img
+                  src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772210/snap2_hz73zr.jpg"
+                  className="m44"
+                  alt="img44"
+                />
               </div>
               <div className="dotss">
                 <label htmlFor="img11" />
@@ -506,147 +541,147 @@ export default function Home() {
             </div>
           </div>
         </div>
-      {/* Footer */}
+        {/* Footer */}
 
-      <div className="gmailbar">
-        <span>Be the first to get latest updates and offers!</span>
-        <input
-          type="textbox"
-          name="text"
-          placeholder="Enter your email address"
-        />
-        {/* <button className="button2" onClick="myFunction(this, 'green')"> 
+        <div className="gmailbar">
+          <span>Be the first to get latest updates and offers!</span>
+          <input
+            type="textbox"
+            name="text"
+            placeholder="Enter your email address"
+          />
+          {/* <button className="button2" onClick="myFunction(this, 'green')"> 
                   subscribe now
                 </button> */}
-        <SubscribeButton />
-        <a href="https://www.facebook.com/">
+          <SubscribeButton />
+          <a href="https://www.facebook.com/">
+            <img
+              src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772175/facebook_umemqa.png"
+              className="gmail"
+            />
+          </a>
+          <a href="https://www.twitter.com/">
+            <img
+              src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772214/twitter_xutsrp.png"
+              className="gmail"
+            />
+          </a>
+          <a href="https://www.youtube.com/">
+            <img
+              src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772219/youtube_tifwv2.png"
+              className="gmail"
+            />
+          </a>
+        </div>
+        <div className="bottom">
+          <div className="s1">
+            <span className="shoppy">Shop</span>
+            <br />
+            <br />
+            <div className="shoppy2">
+              <a
+                href="phone1.html"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <span>Mobile Phone</span>
+              </a>
+              <br />
+              <br />
+              <a
+                href="laptop1.html"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <span>Laptop</span>
+              </a>
+              <br />
+              <br />
+              <a
+                href="watch1.html"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <span>Smart Watch</span>
+              </a>
+              <br />
+            </div>
+          </div>
+          <div className="s2">
+            <span className="shoppy">Legal</span>
+            <br />
+            <br />
+            <div className="shoppy2">
+              <a
+                href="about4.html"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <span>Privacy &amp; Policy</span>
+              </a>
+              <br />
+              <br />
+              <a
+                href="about5.html"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <span>Terms &amp; Conditions</span>
+              </a>
+              <br />
+              <br />
+              <a
+                href="about6.html"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <span>Return &amp; Refund Policy</span>
+              </a>
+            </div>
+          </div>
+          <div className="s3">
+            <span className="shoppy">Customer Care</span>
+            <br />
+            <br />
+            <div className="shoppy2">
+              <span>Phone : +959 951 884 227</span>
+              <br />
+              <br />
+              <span>Live Chat @ Messenger/ Viber / Telegram</span>
+              <br />
+              <br />
+              <span>Email : contact@micromyanmar.com</span>
+            </div>
+          </div>
+          <div className="s4">
+            <span className="shoppy">Location</span>
+            <br />
+            <br />
+            <div className="shoppy2">
+              <span>No127,Modern City Center, 4th floor,Yangon,Myanmar</span>
+              <br />
+              <br />
+              <span>No67,Time City Center, 1st floor,Yangon,Myanmar</span>
+              <br />
+              <br />
+            </div>
+            <span className="shoppy">Store Timing</span>
+            <br />
+            <div className="shoppy2">
+              <span>Open Daily : 9:00AM ~ 5:30PM</span>
+              <br />
+              <br />
+            </div>
+          </div>
+        </div>
+        <div style={{ textAlign: "center" }}>
           <img
-            src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772175/facebook_umemqa.png"
-            className="gmail"
+            src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772193/mylast_fwd9yn.png"
+            style={{ width: 500 }}
+            alt="Last"
           />
-        </a>
-        <a href="https://www.twitter.com/">
-          <img
-            src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772214/twitter_xutsrp.png"
-            className="gmail"
-          />
-        </a>
-        <a href="https://www.youtube.com/">
-          <img
-            src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772219/youtube_tifwv2.png"
-            className="gmail"
-          />
-        </a>
-      </div>
-      <div className="bottom">
-        <div className="s1">
-          <span className="shoppy">Shop</span>
-          <br />
-          <br />
-          <div className="shoppy2">
-            <a
-              href="phone1.html"
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              <span>Mobile Phone</span>
-            </a>
-            <br />
-            <br />
-            <a
-              href="laptop1.html"
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              <span>Laptop</span>
-            </a>
-            <br />
-            <br />
-            <a
-              href="watch1.html"
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              <span>Smart Watch</span>
-            </a>
-            <br />
-          </div>
         </div>
-        <div className="s2">
-          <span className="shoppy">Legal</span>
-          <br />
-          <br />
-          <div className="shoppy2">
-            <a
-              href="about4.html"
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              <span>Privacy &amp; Policy</span>
-            </a>
-            <br />
-            <br />
-            <a
-              href="about5.html"
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              <span>Terms &amp; Conditions</span>
-            </a>
-            <br />
-            <br />
-            <a
-              href="about6.html"
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              <span>Return &amp; Refund Policy</span>
-            </a>
-          </div>
-        </div>
-        <div className="s3">
-          <span className="shoppy">Customer Care</span>
-          <br />
-          <br />
-          <div className="shoppy2">
-            <span>Phone : +959 951 884 227</span>
-            <br />
-            <br />
-            <span>Live Chat @ Messenger/ Viber / Telegram</span>
-            <br />
-            <br />
-            <span>Email : contact@micromyanmar.com</span>
-          </div>
-        </div>
-        <div className="s4">
-          <span className="shoppy">Location</span>
-          <br />
-          <br />
-          <div className="shoppy2">
-            <span>No127,Modern City Center, 4th floor,Yangon,Myanmar</span>
-            <br />
-            <br />
-            <span>No67,Time City Center, 1st floor,Yangon,Myanmar</span>
-            <br />
-            <br />
-          </div>
-          <span className="shoppy">Store Timing</span>
-          <br />
-          <div className="shoppy2">
-            <span>Open Daily : 9:00AM ~ 5:30PM</span>
-            <br />
-            <br />
-          </div>
-        </div>
-      </div>
-      <div style={{ textAlign: "center" }}>
-        <img
-          src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772193/mylast_fwd9yn.png"
-          style={{ width: 500 }}
-          alt="Last"
-        />
-      </div>
-      <br />
-      <span
-        className="last"
-        style={{ display: "block", textAlign: "left", marginBottom: "20px" }}
-      >
-        © Micro Technology Company Limited 2023. All Rights Reserved
-      </span>
+        <br />
+        <span
+          className="last"
+          style={{ display: "block", textAlign: "left", marginBottom: "20px" }}
+        >
+          © Micro Technology Company Limited 2023. All Rights Reserved
+        </span>
       </div>
     </>
   );
