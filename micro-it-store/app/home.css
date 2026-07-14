@@ -992,6 +992,7 @@ span.psw {
 .map1 {
   width: 1500px;
   display: flex;
+  margin-left: 200px;
 }
 .map1a {
   width: 600px;
@@ -1035,9 +1036,11 @@ span.psw {
 }
 .map11 {
   font-family: "Century Gothic";
-  font-size: 30px;
+  font-size: 50px;
   font-weight: 900;
   color: #6699ff;
+  text-align: justify;
+  margin-left: 50px;
 }
 
 /* End of the map and about and location */

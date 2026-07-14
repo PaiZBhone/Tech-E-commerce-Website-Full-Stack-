@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { myFunction } from "../function";
+import Link from "next/link";
 import "./about.css";
 import "../home.css";
 import SubscribeButton from "../components/SubscribeButtion";
@@ -9,106 +10,130 @@ import SubscribeButton from "../components/SubscribeButtion";
 export default function about() {
   return (
     <div>
-      <div className="head">
-        <p>
-          <a href="../../" className="title">
-            <img src="photo/logo2.png" width="200px" height="150px"></img>
-          </a>
-          <a href="#">
-            <img src="photo/search.png" className="main1"></img>
-          </a>
-          <a href="cart.html">
-            <img src="photo/shopping-cart.png" className="main1"></img>
-          </a>
-          <a href="profile.html">
-            <img src="photo/user.png" className="main1"></img>
-          </a>
-        </p>
-      </div>
-      <div className="promotion">
-        <div className="marquee">
-          <p className="pro">
-            {" "}
-            Pure Love from May sale!! Up to 30% to any devices purchase(From May
-            1st - May 31, 2023) Pure Love from May sale!! Up to 30% to any
-            devices purchase(From May 1st - May 31, 2023){" "}
+      <div className="fix">
+        <div className="head">
+          <p>
+            <Link href="/" className="title">
+              <img
+                src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772187/logo2_zqjlxs.png"
+                width="200px"
+                height="150px"
+              />
+            </Link>
+            <Link href="#">
+              <img
+                src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772208/search_tyertz.png"
+                className="main1"
+              />
+            </Link>
+            <Link href="/cart">
+              <img
+                src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772209/shopping-cart_sroitn.png"
+                className="main1"
+              />
+            </Link>
+            <Link href="#">
+              <img
+                src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772216/user_ey4xfx.png"
+                className="main1"
+              />
+            </Link>
           </p>
         </div>
-      </div>
-      <div className="hehe">
-        <div className="taskbar">
-          <span>
-            Mobile Phone{" "}
-            <img src="photo/down-arrow.png" className="arrow"/>
+        <div className="promotion">
+          <div className="marquee">
+            <p className="pro">
               {" "}
-          </span>
-          <div className="taskbar-content">
-            <a href="phone1.html" className="g">
-              <p>iPhone</p>
-            </a>
-            <a href="phone2.html" className="g">
-              <p>Samsung</p>
-            </a>
-            <a href="phone3.html" className="g">
-              <p>Huawei</p>
-            </a>
+              Pure Love from May sale!! Up to 30% to any devices purchase(From
+              May 1st - May 31, 2023) Pure Love from May sale!! Up to 30% to any
+              devices purchase(From May 1st - May 31, 2023){" "}
+            </p>
           </div>
         </div>
-        <div className="taskbar3">
-          <span>
-            Smart Watch <img src="photo/down-arrow.png" className="arrow"></img>
-          </span>
-          <div className="taskbar-content3">
-            <a href="watch1.html" className="g">
-              <p>Apple</p>
-            </a>
-            <a href="watch2.html" className="g">
-              <p>Samsung</p>
-            </a>
-          </div>
-        </div>
-        <div className="taskbar2">
-          <span>
-            Notebook <img src="photo/down-arrow.png" className="arrow"></img>
-          </span>
-          <div className="taskbar-content2">
-            <a href="laptop2.html" className="g">
-              <p>Asus</p>
-            </a>
-            <a href="laptop3.html" className="g">
-              <p>Lenovo</p>
-            </a>
-            <a href="laptop1.html" className="g">
-              <p>Macbook</p>
-            </a>
-            <a href="laptop4.html" className="g">
-              <p>MSI gaming</p>
-            </a>
-          </div>
-        </div>
-        {/* <div className="taskbar3">
-            <span>Smart Watch <img src="./photo/down-arrow.png" className="arrow"></span>
-            <div className="taskbar-content3">
-                <a href="about.html" className="g"><p>Apple</p></a>
-                <a href="about.html" className="g"><p>Samsung</p></a>
-                <a href="about.html" className="g"><p>Huawei</p></a>
-                
-                
+        <div className="hehe">
+          <div className="taskbar">
+            <span>
+              Mobile Phone{" "}
+              <img
+                src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772173/down-arrow_keirfm.png"
+                className="arrow"
+              />
+            </span>
+            <div className="taskbar-content">
+              <a href="/category/mobile-phone/apple" className="g">
+                <p>iPhone</p>
+              </a>
+              <a href="/category/mobile-phone/Samsung" className="g">
+                <p>Samsung</p>
+              </a>
+              <a href="/category/mobile-phone/Huawei" className="g">
+                <p>Huawei</p>
+              </a>
             </div>
-        </div> */}
-
-        <a href="about3.html" className="t">
-          <span>FAQS</span>
-        </a>
-        <a href="about.html" className="t">
-          <span>Location</span>
-        </a>
-        <a href="about1.html" className="t">
-          <span>About Micro IT</span>
-        </a>
-        <a href="about2.html" className="t">
-          <span>Contact</span>
-        </a>
+          </div>
+          <div className="taskbar3">
+            <span>
+              Smart Watch{" "}
+              <img
+                src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772173/down-arrow_keirfm.png"
+                className="arrow"
+              />
+            </span>
+            <div className="taskbar-content3">
+              <a href="/category/smart-watch/apple" className="g">
+                <p>Apple</p>
+              </a>
+              <a href="/category/smart-watch/samsung" className="g">
+                <p>Samsung</p>
+              </a>
+            </div>
+          </div>
+          <div className="taskbar2">
+            <span>
+              Notebook{" "}
+              <img
+                src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772173/down-arrow_keirfm.png"
+                className="arrow"
+              />
+            </span>
+            <div className="taskbar-content2">
+              <a href="/category/notebook/asus" className="g">
+                <p>Asus</p>
+              </a>
+              <a href="/category/notebook/lenovo" className="g">
+                <p>Lenovo</p>
+              </a>
+              <a href="/category/notebook/macbook" className="g">
+                <p>Macbook</p>
+              </a>
+              <a href="/category/notebook/MSI Gaming" className="g">
+                <p>MSI gaming</p>
+              </a>
+            </div>
+          </div>
+          {/* <div class="taskbar3">
+				<span>Smart Watch <img src="./photo/down-arrow.png" class="arrow"></span>
+				<div class="taskbar-content3">
+					<a href="about.html" class="g"><p>Apple</p></a>
+					<a href="about.html" class="g"><p>Samsung</p></a>
+					<a href="about.html" class="g"><p>Huawei</p></a>
+					
+					
+				</div>
+			</div> */}
+          <a href="/about3" className="t">
+            <span>FAQS</span>
+          </a>
+          <a href="/about" className="t">
+            <span>Location</span>
+          </a>
+          <a href="/about1" className="t">
+            <span>About Micro IT</span>
+          </a>
+          <a href="/about2" className="t">
+            <span>Contact</span>
+          </a>
+        </div>
       </div>
       <br></br>
       <br></br>
@@ -183,151 +208,147 @@ export default function about() {
         </div>
       </div>
 
-      <div className="gmailbar">
-        <span>Be the first to get latest updates and offers!</span>
-        <input
-          type="textbox"
-          name="textname"
-          placeholder="Enter your email address"
-        ></input>
-        {/* <button className="button2" onClick="myFunction(this, 'green')"> 
-            subscribe now
-          </button> */}
-        <SubscribeButton></SubscribeButton>
 
-        <a href="https://www.facebook.com/">
-          <img src="photo/facebook.png" className="gmail"></img>
-        </a>
-        <a href="https://www.twitter.com/">
-          <img src="photo/twitter.png" className="gmail"></img>
-        </a>
-        <a href="https://www.youtube.com/">
-          <img src="photo/youtube.png" className="gmail"></img>
-        </a>
-      </div>
-      <div className="bottom">
-        <div className="s1">
-          <span className="shoppy">Shop</span>
-          <br></br>
-          <br></br>
-          <div className="shoppy2">
-            <a
-              href="phone1.html"
-              style={{
-                textDecoration: "none",
-                color: "black",
-              }}
-            >
-              <span>Mobile Phone</span>
-            </a>
-            <br></br>
-            <br></br>
-
-            <a
-              href="laptop1.html"
-              style={{
-                textDecoration: "none",
-                color: "black",
-              }}
-            >
-              <span>Laptop</span>
-            </a>
-            <br></br>
-            <br></br>
-            <a
-              href="watch1.html"
-              style={{
-                textDecoration: "none",
-                color: "black",
-              }}
-            >
-              <span>Smart Watch</span>
-            </a>
-            <br></br>
+        <div className="gmailbar">
+          <span>Be the first to get latest updates and offers!</span>
+          <input
+            type="textbox"
+            name="text"
+            placeholder="Enter your email address"
+          />
+          {/* <button className="button2" onClick="myFunction(this, 'green')"> 
+                  subscribe now
+                </button> */}
+          <SubscribeButton />
+          <a href="https://www.facebook.com/">
+            <img
+              src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772175/facebook_umemqa.png"
+              className="gmail"
+            />
+          </a>
+          <a href="https://www.twitter.com/">
+            <img
+              src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772214/twitter_xutsrp.png"
+              className="gmail"
+            />
+          </a>
+          <a href="https://www.youtube.com/">
+            <img
+              src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772219/youtube_tifwv2.png"
+              className="gmail"
+            />
+          </a>
+        </div>
+        <div className="bottom">
+          <div className="s1">
+            <span className="shoppy">Shop</span>
+            <br />
+            <br />
+            <div className="shoppy2">
+              <a
+                href="phone1.html"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <span>Mobile Phone</span>
+              </a>
+              <br />
+              <br />
+              <a
+                href="laptop1.html"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <span>Laptop</span>
+              </a>
+              <br />
+              <br />
+              <a
+                href="watch1.html"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <span>Smart Watch</span>
+              </a>
+              <br />
+            </div>
+          </div>
+          <div className="s2">
+            <span className="shoppy">Legal</span>
+            <br />
+            <br />
+            <div className="shoppy2">
+              <a
+                href="about4.html"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <span>Privacy &amp; Policy</span>
+              </a>
+              <br />
+              <br />
+              <a
+                href="about5.html"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <span>Terms &amp; Conditions</span>
+              </a>
+              <br />
+              <br />
+              <a
+                href="about6.html"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <span>Return &amp; Refund Policy</span>
+              </a>
+            </div>
+          </div>
+          <div className="s3">
+            <span className="shoppy">Customer Care</span>
+            <br />
+            <br />
+            <div className="shoppy2">
+              <span>Phone : +959 951 884 227</span>
+              <br />
+              <br />
+              <span>Live Chat @ Messenger/ Viber / Telegram</span>
+              <br />
+              <br />
+              <span>Email : contact@micromyanmar.com</span>
+            </div>
+          </div>
+          <div className="s4">
+            <span className="shoppy">Location</span>
+            <br />
+            <br />
+            <div className="shoppy2">
+              <span>No127,Modern City Center, 4th floor,Yangon,Myanmar</span>
+              <br />
+              <br />
+              <span>No67,Time City Center, 1st floor,Yangon,Myanmar</span>
+              <br />
+              <br />
+            </div>
+            <span className="shoppy">Store Timing</span>
+            <br />
+            <div className="shoppy2">
+              <span>Open Daily : 9:00AM ~ 5:30PM</span>
+              <br />
+              <br />
+            </div>
           </div>
         </div>
+        <div style={{ textAlign: "center" }}>
+          <img
+            src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772193/mylast_fwd9yn.png"
+            style={{ width: 500 }}
+            alt="Last"
+          />
+        </div>
+        <br />
+        <span
+          className="last"
+          style={{ display: "block", textAlign: "left", marginBottom: "20px" }}
+        >
+          © Micro Technology Company Limited 2023. All Rights Reserved
+        </span>
 
-        <div className="s2">
-          <span className="shoppy">Legal</span>
-          <br></br>
-          <br></br>
-          <div className="shoppy2">
-            <a
-              href="about4.html"
-              style={{
-                textDecoration: "none",
-                color: "black",
-              }}
-            >
-              <span>Privacy & Policy</span>
-            </a>
-            <br></br>
-            <br></br>
-            <a
-              href="about5.html"
-              style={{
-                textDecoration: "none",
-                color: "black",
-              }}
-            >
-              <span>Terms & Conditions</span>
-            </a>
-            <br></br>
-            <br></br>
-            <a
-              href="about6.html"
-              style={{
-                textDecoration: "none",
-                color: "black",
-              }}
-            >
-              <span>Return & Refund Policy</span>
-            </a>
-          </div>
-        </div>
-
-        <div className="s3">
-          <span className="shoppy">Customer Care</span>
-          <br></br>
-          <br></br>
-          <div className="shoppy2">
-            <span>Phone : +959 951 884 227</span>
-            <br></br>
-            <br></br>
-            <span>Live Chat @ Messenger/ Viber / Telegram</span>
-            <br></br>
-            <br></br>
-            <span>Email : contact@micromyanmar.com</span>
-          </div>
-        </div>
-        <div className="s4">
-          <span className="shoppy">Location</span>
-          <br></br>
-          <br></br>
-          <div className="shoppy2">
-            <span>No127,Modern City Tower, 4th floor,Yangon,Myanmar</span>
-            <br></br>
-            <br></br>
-            <span>No67,Time City Center, 1st floor,Yangon,Myanmar</span>
-            <br></br>
-            <br></br>
-          </div>
-          <span className="shoppy">Store Timing</span>
-          <br></br>
-          <div className="shoppy2">
-            <span>Open Daily : 9:00AM ~ 5:30PM</span>
-            <br></br>
-            <br></br>
-          </div>
-        </div>
-      </div>
-      <center>
-        <img src="photo/mylast.png" style={{ width: "500px" }}></img>
-      </center>
-      <br></br>
-      <span className="last">
-        © Micro Technology Company Limited 2023. All Rights Reserved
-      </span>
     </div>
   );
 }

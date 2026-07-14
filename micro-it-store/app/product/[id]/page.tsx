@@ -90,7 +90,7 @@ export default async function ProductDetailPage({
       <div className="fix">
         <div className="head">
           <p>
-            <Link href="#" className="title">
+            <Link href="/" className="title">
               <img
                 src="https://res.cloudinary.com/dbi8luzul/image/upload/v1781772187/logo2_zqjlxs.png"
                 width="200px"
@@ -137,13 +137,13 @@ export default async function ProductDetailPage({
               />
             </span>
             <div className="taskbar-content">
-              <a href="category/mobile-phone/apple" className="g">
+              <a href="/category/mobile-phone/apple" className="g">
                 <p>iPhone</p>
               </a>
-              <a href="category/mobile-phone/Samsung" className="g">
+              <a href="/category/mobile-phone/Samsung" className="g">
                 <p>Samsung</p>
               </a>
-              <a href="category/mobile-phone/Huawei" className="g">
+              <a href="/category/mobile-phone/Huawei" className="g">
                 <p>Huawei</p>
               </a>
             </div>
@@ -157,10 +157,10 @@ export default async function ProductDetailPage({
               />
             </span>
             <div className="taskbar-content3">
-              <a href="category/smart-watch/apple" className="g">
+              <a href="/category/smart-watch/apple" className="g">
                 <p>Apple</p>
               </a>
-              <a href="category/smart-watch/samsung" className="g">
+              <a href="/category/smart-watch/samsung" className="g">
                 <p>Samsung</p>
               </a>
             </div>
@@ -174,16 +174,16 @@ export default async function ProductDetailPage({
               />
             </span>
             <div className="taskbar-content2">
-              <a href="category/notebook/asus" className="g">
+              <a href="/category/notebook/asus" className="g">
                 <p>Asus</p>
               </a>
-              <a href="category/notebook/lenovo" className="g">
+              <a href="/category/notebook/lenovo" className="g">
                 <p>Lenovo</p>
               </a>
-              <a href="category/notebook/macbook" className="g">
+              <a href="/category/notebook/macbook" className="g">
                 <p>Macbook</p>
               </a>
-              <a href="category/notebook/MSI Gaming" className="g">
+              <a href="/category/notebook/MSI Gaming" className="g">
                 <p>MSI gaming</p>
               </a>
             </div>
@@ -198,16 +198,16 @@ export default async function ProductDetailPage({
 					
 				</div>
 			</div> */}
-          <a href="about3" className="t">
+          <a href="/about3" className="t">
             <span>FAQS</span>
           </a>
-          <a href="about" className="t">
+          <a href="/about" className="t">
             <span>Location</span>
           </a>
-          <a href="about1" className="t">
+          <a href="/about1" className="t">
             <span>About Micro IT</span>
           </a>
-          <a href="about2" className="t">
+          <a href="/about2" className="t">
             <span>Contact</span>
           </a>
         </div>
